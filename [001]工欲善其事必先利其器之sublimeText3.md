@@ -23,3 +23,8 @@
     + `@requires`依赖模块
     + `@return`返回值
     + `@version`版本号
+
+- Stylus Clean Completions(stylus语法提示插件)
+- stylus(.vue文件中stylus语法高亮插件)
+- Vue Syntax Highlight(.vue文件语法高亮插件)
+- MarkdownEditing(markdown语法高亮插件)
