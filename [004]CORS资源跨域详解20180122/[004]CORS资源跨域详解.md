@@ -1,3 +1,10 @@
+/*!
+ * CORS资源跨域详解
+ * 2018年1月24日
+ * 内内那叔_
+ */
+
+
 前端时间项目中用到Vue，并且用到了vue官方推荐的axios来进行http请求，但是过程种就碰到了跨域方面的问题，查阅资料后解决了问题，现在此做下详细记录。
 
 ## 什么是CORS?
@@ -10,7 +17,7 @@
 3. `data` 作为请求主体被发送的数据，只实用于put、post、patch这些请求方法。一般post请求时通过这种方式传递参数。
 
 ## 简单请求和非简单请求
-浏览器将CORS分为2中请求：简单请求和非简单请求。
+浏览器将CORS分为2种请求：简单请求和非简单请求。
 
 - 简单请求：同时满足一下2大条件的都是简单请求。
     + 请求方法自能是：head、get、post
@@ -22,4 +29,34 @@
         * `Content-type`只限于3个值：application/x-www-form-urlencoded、multipart/form-data、text/plain
 - 非简单请求：简单请求之外的请求都归为非简单请求一类
 
+### 简单请求基本流程
+- 请求
+    浏览器可以直接发起CORS简单请求，并且在头信息中增加`Origin`字段，记录本次请求来自哪个源（包含协议、域名以及端口等信息），服务器会根据这个字段判断是否同意这次请求。
+- 响应
+    正确响应的响应头中包含的字段：
+    + Access-Control-Allow-Origin
+        * 必须字段
+        * 这个字段的值要么是请求头中Origin字段的值，要么直接是*
+        * 当请求中需要携带cookies时（即`withCredentials`设置为true时），响应头中的`Access-Control-Allow-Origin`字段只能是请求头中的Origin字段对应的值，不能为*，否则请求报错。
+    + Access-Control-Allow-Credentials
+        * 可选字段，Boolean值，表示是否允许发送cookies
+        * 一般当`withCredentials`设置为true时，响应头中的该字段设置为true
+    + Access-Control-Expose-Headers
+        * 可选字段
+        * 指定可以拿到响应头中6个基本字段以外的字段
 
+### 非简单请求基本流程
+- 请求及响应
+    非简单请求时，需先执行预检请求，当预检请求通过以后，才会放真正的请求。
+    + OPTIONS预检请求
+        浏览器先询问服务器，当前网页所在域名是否在服务器的许可名单下，以及可以使用哪些HTTP动词和头信息字段。另外预检请求不携带cookies信息。
+    + 预检请求的响应
+        包含的字段及含义如下：
+        * `Access-Control-Allow-Methods`返回服务器所有支持的请求方法
+        * `Access-Control-Allow-Headers`表明服务器所有支持的头信息字段
+        * `Access-Control-Allow-Credentials`
+        * `Access-Control-Allow-Max-Age`
+            - 指定本次预检请求的有效期
+            - 在此期间，不用再发出另外一条预检请求
+    + 实际需要的请求
+        这时候的请求响应和简单请求一致。

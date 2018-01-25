@@ -27,4 +27,7 @@
 - Stylus Clean Completions(stylus语法提示插件)
 - stylus(.vue文件中stylus语法高亮插件)
 - Vue Syntax Highlight(.vue文件语法高亮插件)
+- Vue Syntax Highlight for Sass(Sass和Scss语法高亮插件)
 - MarkdownEditing(markdown语法高亮插件)
+- Emmet(语法提示插件)
+- 
