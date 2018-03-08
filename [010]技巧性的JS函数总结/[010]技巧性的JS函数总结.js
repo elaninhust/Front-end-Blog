@@ -19,7 +19,7 @@ function randomSort (arr) {
 
 function combinations(array, n) {
   var lists = [],
-      M = 1 << array.length;
+      M = 1 << array.length; //2^arr.length次方，获得所有组合的个数
   for (var i = 1; i < M; ++i) {
       var sublist = array.filter(function(c, k) {
           return i >> k & 1
