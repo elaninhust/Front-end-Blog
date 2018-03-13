@@ -92,3 +92,23 @@ function minSort(arr){
 	}
 	return arr;
 }
+
+/**
+ * 判断数据类型的方法
+ * @author Elan
+ * @param {any} x 传入判断类型的数据
+ * @return {'array'}  返回结果为数组类型
+ * @return {'object'} 返回结果为对象类型
+ * @return {'function'} 返回结果为函数类型
+ * @return {'number'} 返回结果为数字类型
+ * @return {'string'} 返回结果为字符串类型
+ * @return {'boolean'} 返回结果为布尔类型
+ */
+
+function getType (x){
+	return Object.prototype.toString.call(x).slice(8,-1).toLowerCase();
+}
+
+function getType(x){
+	return ({}).toString.call(x).slice(8,-1).toLowerCase();
+}

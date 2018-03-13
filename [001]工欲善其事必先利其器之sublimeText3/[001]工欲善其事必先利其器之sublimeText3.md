@@ -34,6 +34,6 @@
 - Babel(ES6语法和React JSX高亮插件)
 - React Development Snippets(React代码提示插件)
 - Sass(Sass语法高亮)
-- Sun Setting(插件跨平台同步功能实现)
+- Sync Setting(插件跨平台同步功能实现)
 - View In Browser(邮件在浏览器中打开插件)
 - 
