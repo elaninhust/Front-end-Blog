@@ -103,6 +103,8 @@ function minSort(arr){
  * @return {'number'} 返回结果为数字类型
  * @return {'string'} 返回结果为字符串类型
  * @return {'boolean'} 返回结果为布尔类型
+ * @return {'null'} 返回结果为null
+ * @return {'undefined'} 返回结果为undefined
  */
 
 function getType (x){
