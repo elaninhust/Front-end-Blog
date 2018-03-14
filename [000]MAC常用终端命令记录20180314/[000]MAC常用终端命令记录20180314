@@ -1,0 +1,5 @@
+- 修改.bash_profile文件
+    vim ~/.bash_profile
+
+- 修改host文件
+    vim /etc/hosts
