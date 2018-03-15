@@ -1,11 +1,11 @@
 /*!
- * CORS资源跨域详解
+ * CORS资源跨域详解+axios和ajax的区别
  * 2018年1月24日
  * 内内那叔_
  */
 
 
-前端时间项目中用到Vue，并且用到了vue官方推荐的axios来进行http请求，但是过程种就碰到了跨域方面的问题，查阅资料后解决了问题，现在此做下详细记录。
+前端时间项目中用到Vue，并且用到了vue官方推荐的axios来进行http请求，但是过程中就碰到了跨域方面的问题，查阅资料后解决了问题，现在此做下详细记录。
 
 ## 什么是CORS?
 首先说下CORS是个啥东西。CORS是一个W3C标准，它允许浏览器向服务器发起跨域请求，可以克服AJAX的“同源”限制。
@@ -60,3 +60,44 @@
             - 在此期间，不用再发出另外一条预检请求
     + 实际需要的请求
         这时候的请求响应和简单请求一致。
+
+## axios和ajax的区别
+
+axios和ajax的区别主要在发送post请求的比较明显，get请求时区别不大。
+
+利用axios发起post请求时，默认的Content-Type类型为application/json,而ajax发起post请求时，默认的Content-Type类型为application/x-www-form-urlcoded。但是，如果在axios发起post请求时，手动的将Content-Type改为application/x-www-form-urlcoded,能否和ajax发起的post请求一致呢？很可惜，这是不可能滴，虽然改了Content-Type，但是数据依然不正确。
+
+所以为了能用axios发起和ajax使用application/x-www-form-urlencoded格式完全一样的post请求，需做如下处理：
+
+- 浏览器
+    
+    1. 可以使用URLSearchParams API
+        
+        ```javascript
+        var params = new URLSearchParams();
+        params.append('params','value1');
+        params.append('param2','value2');
+        axios.post('url',params);
+        ```
+
+        > 请注意，不是所有浏览器都支持URLSearchParams，但是有一个polyfill可用（确保polyfill全局环境）。
+
+    2. 也可以使用qs库对数据进行编码
+
+        ```javascript
+        const qs = require('qs');
+        axios.post('url',qs.stringify({username:"ivan",password:"123456"}));
+        ```
+
+- Node.js
+
+    在node中，可以使用querystring模块：
+
+    ```javascript
+    const querystring = require('querystring');
+    axios.post('url'.querystring.stringify({username:"ivan",password:"123456"}));
+    ```
+
+那么qs.srtingify()和JSON.stringify()有什么区别呢？
+
+对于同一个json对象{username:"ivan",password:"123456"}来说，经过qs.stringify()处理后会变成"username=ivan&password=123456"，而JSON.stringify()序列化的结果是"{"a":"hehe","age":10}"，区别就显而易见了。
