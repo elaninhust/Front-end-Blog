@@ -20,7 +20,7 @@
 浏览器将CORS分为2种请求：简单请求和非简单请求。
 
 - 简单请求：同时满足一下2大条件的都是简单请求。
-    + 请求方法自能是：head、get、post
+    + 请求方法只能是：head、get、post
     + http请求头字段信息不能超出一下几个字段：
         * `Accept`
         * `Acept-language`
@@ -65,7 +65,7 @@
 
 axios和ajax的区别主要在发送post请求的比较明显，get请求时区别不大。
 
-利用axios发起post请求时，默认的Content-Type类型为application/json,而ajax发起post请求时，默认的Content-Type类型为application/x-www-form-urlcoded。但是，如果在axios发起post请求时，手动的将Content-Type改为application/x-www-form-urlcoded,能否和ajax发起的post请求一致呢？很可惜，这是不可能滴，虽然改了Content-Type，但是数据依然不正确。
+利用axios发起post请求时，默认的Content-Type类型为application/json,而ajax发起post请求时，默认的Content-Type类型为application/x-www-form-urlencoded。但是，如果在axios发起post请求时，手动的将Content-Type改为application/x-www-form-urlencoded,能否和ajax发起的post请求一致呢？很可惜，这是不可能滴，虽然改了Content-Type，但是数据依然不正确。
 
 所以为了能用axios发起和ajax使用application/x-www-form-urlencoded格式完全一样的post请求，需做如下处理：
 
