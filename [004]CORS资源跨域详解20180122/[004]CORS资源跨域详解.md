@@ -100,4 +100,4 @@ axios和ajax的区别主要在发送post请求的比较明显，get请求时区�
 
 那么qs.srtingify()和JSON.stringify()有什么区别呢？
 
-对于同一个json对象{username:"ivan",password:"123456"}来说，经过qs.stringify()处理后会变成"username=ivan&password=123456"，而JSON.stringify()序列化的结果是"{"a":"hehe","age":10}"，区别就显而易见了。
+对于同一个json对象{username:"ivan",password:"123456"}来说，经过qs.stringify()处理后会变成"username=ivan&password=123456"，而JSON.stringify()序列化的结果是"{"username":"ivan","password":123456}"，区别就显而易见了。
