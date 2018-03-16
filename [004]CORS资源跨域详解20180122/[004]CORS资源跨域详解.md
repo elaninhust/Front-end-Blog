@@ -4,6 +4,7 @@
  * 内内那叔_
  */
 
+# CORS资源跨域
 
 前端时间项目中用到Vue，并且用到了vue官方推荐的axios来进行http请求，但是过程中就碰到了跨域方面的问题，查阅资料后解决了问题，现在此做下详细记录。
 
@@ -61,7 +62,7 @@
     + 实际需要的请求
         这时候的请求响应和简单请求一致。
 
-## axios和ajax的区别
+# axios和ajax的区别
 
 axios和ajax的区别主要在发送post请求的比较明显，get请求时区别不大。
 
@@ -101,3 +102,22 @@ axios和ajax的区别主要在发送post请求的比较明显，get请求时区�
 那么qs.srtingify()和JSON.stringify()有什么区别呢？
 
 对于同一个json对象{username:"ivan",password:"123456"}来说，经过qs.stringify()处理后会变成"username=ivan&password=123456"，而JSON.stringify()序列化的结果是"{"username":"ivan","password":123456}"，区别就显而易见了。
+
+
+# cookie的跨域访问
+
+前段时间涉及到了cookie的跨域名访问和修改删除，现在做一个系统的整理。
+
+## 主域名（一级域名）、二级域名。。。
+
+- 主域名:biyao.com
+- 二级域名:m.biyao.com
+
+## 不同域名之间跨域访问cookie
+
+- 主域名
+    + 只能访问到domain为主域名的cookie，访问不到二级域名或其他域名下的cookie。
+    + 同样的，也只能新增、修改和删除domian为主域名的cookie
+- 一级域名
+    + 能访问到domain为主域名或者本二级域名的cookie，无法访问到其他不同二级域名下的cookie
+    + 同样，也能新增、修改和删除domain为主域名或者本二级域名的cookie
