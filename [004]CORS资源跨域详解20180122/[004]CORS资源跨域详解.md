@@ -110,7 +110,7 @@ axios和ajax的区别主要在发送post请求的比较明显，get请求时区�
 
 ## 主域名（一级域名）、二级域名。。。
 
-- 主域名:biyao.com
+- 主域名:biyao.com(和.biyao.com一样)
 - 二级域名:m.biyao.com
 
 ## 不同域名之间跨域访问cookie
