@@ -3,6 +3,15 @@
  */
 
 /**
+ * 数组从小到大排序
+ * @param {Array} 输入参数数组
+ * @return {Array} 返回从小到大排序好的数组
+ */
+
+const qsort = ([x,...ax]) => 
+	x === undefined ? [] : [...qsort(ax.filter(_ => _ <= x)),x,...qsort(ax.filter(_ => _>x))]
+
+/**
  * 数组随机打乱顺序
  */
 
