@@ -18,8 +18,11 @@ module.exports = {
     app: './src/main.js'
   },
   output: {
+    //配置输出文件存放的本地路径，必须为以绝对路径的字符串
     path: config.build.assetsRoot,
+    //配置输出文件名称，string，可以使用[id]、[name]、[hash:8]、[chunkhash:8]等变量
     filename: '[name].js',
+    //配置发布到线上资源的 URL 前缀，为string 类型。
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
@@ -35,9 +38,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderConfig
+        test: /\.vue$/,//匹配.vue文件
+        loader: 'vue-loader', //用vue-loader的这个Loader来处理.vue文件
+        options: vueLoaderConfig//一些vue-loader的配置
       },
       {
         test: /\.js$/,
