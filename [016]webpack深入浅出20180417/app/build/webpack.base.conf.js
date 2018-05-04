@@ -28,8 +28,8 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
-    alias: {
+    extensions: ['.js', '.vue', '.json'],//在导入语句没有后缀时,自动添加后缀去寻找文件,优先级从左到右
+    alias: {//别名
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
       'components': resolve("src/components")
@@ -43,8 +43,8 @@ module.exports = {
         options: vueLoaderConfig//一些vue-loader的配置
       },
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
+        test: /\.js$/,//匹配.js文件
+        loader: 'babel-loader',//用bane-loader的这个Loader来处理.js文件
         include: [resolve('src'), resolve('test')]
       },
       {
