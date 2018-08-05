@@ -1,5 +1,8 @@
 ## 常用的Linux命令
 
+
+### 第一天
+
 ```javascript
 
 1. ls    列出文件
@@ -29,5 +32,29 @@
 9. rmdir    删除空文件夹
 
 10. echo    显示内容
+
+```
+
+### 第二天-安装和登陆命令相关
+
+```javascript
+
+1. login 登陆，或者切换登陆
+
+2. shutdown 关机或重启
+
+3. halt 关机，等同于shutdown -h 
+
+4. reboot 重启（强制重启，可能导致数据丢失）
+
+5. install  安装
+
+6. mount、umount 挂载或者解除挂载
+
+7. chsh 切换shell
+
+8. exit  退出
+
+9. last  查看最近用户登陆情况
 
 ```
