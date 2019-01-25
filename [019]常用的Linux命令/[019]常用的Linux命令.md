@@ -1,5 +1,4 @@
-## 常用的Linux命令
-
+## 常用的 Linux 命令
 
 ### 第一天
 
@@ -24,7 +23,7 @@
     -i  删除提示
 
 6. touch    创建文件
-    
+
 7. cd   进入文件夹
 
 8. mkdir    创建文件夹
@@ -43,7 +42,7 @@
 
 2. shutdown 关机或重启
 
-3. halt 关机，等同于shutdown -h 
+3. halt 关机，等同于shutdown -h
 
 4. reboot 重启（强制重启，可能导致数据丢失）
 
